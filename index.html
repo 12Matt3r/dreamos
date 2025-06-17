@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamOS v13.13</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" href="/creepy_sound.mp3" as="audio">
+  <link rel="preload" href="/blinking_eye.png" as="image">
+  <link rel="preload" href="/wake_up_clocks.png" as="image"> 
+  <link rel="preload" href="/IMG_6202.webp" as="image">
+  <link rel="preload" href="/asset_name.png" as="image">
+</head>
+<body>
+  <div class="desktop">
+    <!-- Desktop icons will be dynamically created here -->
+  </div>
+  
+  <div class="taskbar">
+    <div class="start-button">Start</div>
+    <div class="taskbar-items"></div>
+    <div class="clock"></div>
+  </div>
+  
+  <div class="start-menu"></div>
+  
+  <div class="window-container"></div>
+  
+  <div id="audio-container" style="display: none;">
+    <audio id="startup-sound" src="/startup.mp3" preload="auto"></audio>
+    <audio id="glitch-sound" src="/glitch.mp3" preload="auto"></audio>  
+    <audio id="notification-sound" src="/notify.mp3" preload="auto"></audio>
+    <audio id="error-sound" src="/error.mp3" preload="auto"></audio>
+    <audio id="creepy-sound" src="/creepy_sound.mp3" preload="auto"></audio>
+  </div>
+  
+  <script type="importmap">
+    {
+      "imports": {
+        "tone": "https://cdn.skypack.dev/tone"
+      }
+    }
+  </script>
+  
+  <!-- Load scripts in correct order with async/defer -->
+  <script src="js/utils.js" defer></script>
+  <script src="js/icons.js" defer></script>
+  <script src="js/audio.js" defer></script>
+  <script src="js/windows.js" defer></script>
+  <script src="js/programs.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/desktop.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
