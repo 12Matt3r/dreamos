@@ -16,13 +16,13 @@
     <!-- Desktop icons will be dynamically created here -->
   </div>
   
-  <div class="taskbar">
-    <div class="start-button">Start</div>
+  <div class="taskbar" role="toolbar">
+    <div class="start-button" role="button" aria-haspopup="true" aria-expanded="false">Start</div>
     <div class="taskbar-items"></div>
-    <div class="clock"></div>
+    <div class="clock" role="timer" aria-live="polite"></div>
   </div>
   
-  <div class="start-menu"></div>
+  <div class="start-menu" role="menu" aria-hidden="true"></div>
   
   <div class="window-container"></div>
   
@@ -42,14 +42,118 @@
     }
   </script>
   
-  <!-- Load scripts in correct order with async/defer -->
-  <script src="js/utils.js" defer></script>
-  <script src="js/icons.js" defer></script>
-  <script src="js/audio.js" defer></script>
-  <script src="js/windows.js" defer></script>
-  <script src="js/programs.js" defer></script>
-  <script src="js/ui.js" defer></script>
-  <script src="js/desktop.js" defer></script>
-  <script src="js/main.js" defer></script>
+  <!-- Load scripts as modules -->
+  <script type="module" src="js/main.js"></script>
+
+  <!-- TEMPLATES -->
+  <template id="window-template">
+    <div class="window" role="dialog">
+      <div class="window-titlebar">
+        <div class="window-title" id="window-title-placeholder"></div>
+      </div>
+      <div class="window-controls">
+        <button class="window-control window-minimize" aria-label="Minimize">_</button>
+        <button class="window-control window-maximize" aria-label="Maximize">□</button>
+        <button class="window-control window-close" aria-label="Close">×</button>
+      </div>
+      <div class="window-content"></div>
+    </div>
+  </template>
+
+  <template id="start-menu-item-template">
+    <div class="start-menu-item">
+      <div class="start-menu-icon"></div>
+      <div class="start-menu-item-label"></div>
+    </div>
+  </template>
+
+  <template id="boot-screen-template">
+    <div class="boot-screen">
+      <div class="boot-content">
+        <div class="logo-container">
+          <img src="asset_name.png" alt="DreamOS" class="boot-logo">
+        </div>
+        <div class="boot-name">DreamOS <span class="version">v13.13</span></div>
+        <div class="boot-progress-container">
+          <div class="boot-progress-bar"></div>
+        </div>
+        <div class="boot-status"></div>
+        <div class="boot-message"></div>
+      </div>
+    </div>
+  </template>
+
+  <template id="bsod-screen-template">
+    <div class="bsod-screen">
+      <div class="bsod-content">
+        <div class="bsod-header">DreamOS</div>
+        <div class="bsod-message"></div>
+        <div class="bsod-instruction">
+          * Press any key to return to reality.<br>
+          * Press CTRL+ALT+DEL to restart your computer. You will lose any unsaved information in all applications.
+        </div>
+        <div class="bsod-error-details"></div>
+        <div class="bsod-press-key">Press any key to continue _</div>
+      </div>
+    </div>
+  </template>
+
+  <template id="terminal-window-template">
+    <div class="terminal">
+      <div class="terminal-line">DreamOS [Version 13.13.13.13]</div>
+      <div class="terminal-line">Copyright (c) 1985-∞ SofaKing Industries. All rights reserved.</div>
+      <div class="terminal-line"></div>
+      <div class="terminal-input">
+        <div class="terminal-prompt">C:\\></div>
+        <input type="text" class="terminal-command" spellcheck="false" autofocus>
+      </div>
+    </div>
+  </template>
+
+  <template id="file-explorer-template">
+    <div class="file-explorer">
+      <div class="file-explorer-toolbar">
+        <button>File</button>
+        <button>Edit</button>
+        <button>View</button>
+        <button>Help</button>
+      </div>
+      <div class="file-explorer-content"></div>
+    </div>
+  </template>
+
+  <template id="browser-template">
+    <div class="browser">
+      <div class="browser-toolbar">
+        <button>File</button><button>Edit</button><button>View</button><button>Favorites</button><button>Tools</button><button>Help</button>
+      </div>
+      <div class="browser-nav">
+        <button id="back-btn">Back</button>
+        <button id="forward-btn">Forward</button>
+        <button id="refresh-btn">Refresh</button>
+        <form id="url-form"><input type="text" id="browser-address-bar"><button type="submit" id="go-btn">Go</button></form>
+      </div>
+      <div class="browser-content"></div>
+    </div>
+  </template>
+
+  <template id="error-message-template">
+      <div class="error-message">
+        <div class="error-icon">!</div>
+        <p class="error-text"></p>
+        <button class="error-ok-btn">OK</button>
+      </div>
+  </template>
+
+  <template id="shutdown-confirm-template">
+    <div class="shutdown-confirm">
+      <p>Are you sure you want to shut down the computer?</p>
+      <div class="shutdown-buttons">
+        <button id="shutdown-yes-btn">Yes</button>
+        <button id="shutdown-no-btn">No</button>
+      </div>
+    </div>
+  </template>
+
 </body>
 </html>

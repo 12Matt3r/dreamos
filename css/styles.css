@@ -1126,3 +1126,36 @@ body {
     font-size: 24px;
   }
 }
+
+.taskbar-item {
+  padding: 2px 8px;
+  background-color: #c0c0c0;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #848484;
+  border-bottom: 1px solid #848484;
+  margin-left: 2px;
+  height: 22px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.shutdown-confirm {
+  text-align: center;
+  padding: 20px;
+}
+
+.shutdown-buttons {
+  margin-top: 20px;
+}
+
+#shutdown-yes-btn {
+  margin-right: 10px;
+  padding: 5px 15px;
+}
+
+#shutdown-no-btn {
+  padding: 5px 15px;
+}

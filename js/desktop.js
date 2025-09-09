@@ -1,54 +1,11 @@
-// Desktop-related functionality
-
-// State for desktop items
-let desktopItems = [
-  { name: "My Computer", icon: "computer", x: 20, y: 20 },
-  { name: "Recycle Bin", icon: "recycle-bin", x: 20, y: 100 },
-  { name: "Old Desktop Files", icon: "folder", x: 100, y: 20, className: "old-desktop-files-icon" },
-  { name: "Internet Explorer", icon: "ie", x: 20, y: 180 },
-  { name: "TERMINAL.sys", icon: "terminal", x: 20, y: 260 },
-  { name: "Lofi Chillin", icon: "music", x: 20, y: 340, className: "music-player-icon" },
-  { name: "The Crawling Mind", icon: "mind", x: 20, y: 420, className: "crawling-mind-icon" },
-  { name: "Multiplayer Race Game", icon: "race", x: 20, y: 500, className: "race-game-icon" },
-  { name: "Discord App", icon: "discord", x: 20, y: 660, className: "discord-app-icon" },
-  { name: "DreamOS", icon: "os", x: 20, y: 580, className: "dream-os-icon" },
-  { name: "AI Companion", icon: "assistant", x: window.innerWidth - 100, y: 20, className: "assistant-icon" },
-  
-  // Wake Up folder positioned at bottom center
-  { name: "Wake Up Collection", icon: "folder", x: window.innerWidth/2 - 35, y: window.innerHeight - 150, className: "wake-up-folder-icon" },
-  
-  // Add the new folder icons
-  { name: "SHOWCASE GALLERY", icon: "folder", x: 100, y: 100, className: "showcase-folder-icon" },
-  { name: "SOFA CERTIFIED", icon: "folder", x: 100, y: 180, className: "certified-folder-icon" }
-];
-
-// Start menu items
-let startMenuItems = [
-  { name: "Programs", icon: "folder" },
-  { name: "Documents", icon: "folder" },
-  { name: "Settings", icon: "settings" },
-  { name: "Find", icon: "search" },
-  { name: "Help", icon: "help" },
-  { name: "Run...", icon: "run" },
-  { name: "Shut Down...", icon: "shutdown" }
-];
-
-// Floating objects for the hallucination effect
-let floatingObjects = [
-  { type: "eye", size: 40, x: 300, y: 200, delay: 0 },
-  { type: "clock", size: 50, x: 500, y: 100, delay: 5000 },
-  { type: "spiral", size: 30, x: 200, y: 300, delay: 8000 },
-  { type: "THE WORDS \"PLEASE WAKE UP \"", size: 20, x: 700, y: 400, delay: 12000 }
-];
-
-// State for game world
-let worldState = {
-  corruption: 0,
-  awareness: 0
-};
-
-// Flag to track game status
-let gameStarted = false;
+import { openProgram } from './programs.js';
+import { desktopItems, startMenuItems, wakeUpWebsims } from './state.js';
+import { getIconSVG, createStartMenuItem, toggleStartMenu, handleGlobalClick, createFloatingObjects } from './ui.js';
+import { createWindow, createWebSimWindow } from './windows.js';
+import { setupAudio, playStartupSound, playAmbientSound, createGlitchSound, playDoorSound } from './audio.js';
+import { handleKeyDown, updateGameTimer, createHiddenArtifact } from './game.js';
+import { adjustIconPositions, addRandomGlitch, updateClock } from './ui_utils.js';
+import { initDiscordService } from './discord.js';
 
 // Create a desktop icon (return the created element)
 function createDesktopIcon(item) {
@@ -73,7 +30,7 @@ function createDesktopIcon(item) {
 }
 
 // Initialize the desktop
-function initDesktop() {
+export function initDesktop() {
   try {
     // Setup audio
     setupAudio();
@@ -139,8 +96,6 @@ function initDesktop() {
         createHiddenArtifact();
       }, 10000 + Math.random() * 20000);
     }
-    // Set game started flag
-    gameStarted = true;
   } catch (e) {
     console.error("Error initializing desktop:", e);
   }
@@ -163,14 +118,10 @@ function createWakeUpDoorway() {
       showWakeUpCollection();
       
       // Create a creepy sound and glitch effect when clicking the door
-      if (typeof createGlitchSound === 'function') {
-        createGlitchSound();
-      }
+      createGlitchSound();
       
       // Play door sound
-      if (typeof playDoorSound === 'function') {
-        playDoorSound();
-      }
+      playDoorSound();
       
       // Briefly flicker the screen
       const desktop = document.querySelector('.desktop');

@@ -1,39 +1,9 @@
-// Audio-related functionality
+import * as Tone from 'tone';
+import { gameState } from './state.js';
 
 // Audio variables
 let startupSound, dialUpSound, ambientSound, artifactSound, completionSound, creepyDoorSound;
 let audioInitialized = false;
-
-// Setup audio with Tone.js
-function setupAudio() {
-  try {
-    // Check if Tone is available
-    if (typeof Tone === 'undefined') {
-      console.warn("Tone.js not available, loading dynamically");
-      
-      // Create script tag to load Tone.js
-      const script = document.createElement('script');
-      script.src = 'https://cdn.skypack.dev/tone';
-      script.onload = function() {
-        console.log("Tone.js loaded successfully");
-        initializeAudio();
-      };
-      script.onerror = function() {
-        console.error("Failed to load Tone.js");
-        // Create fallbacks for audio functions
-        setupFallbackAudio();
-      };
-      document.head.appendChild(script);
-      return;
-    }
-    
-    // Initialize audio if Tone.js is already available
-    initializeAudio();
-  } catch (e) {
-    console.error("Error setting up audio:", e);
-    setupFallbackAudio();
-  }
-}
 
 // Function to initialize audio once Tone.js is available
 function initializeAudio() {
@@ -188,8 +158,23 @@ function setupFallbackAudio() {
   audioInitialized = true;
 }
 
+// Setup audio with Tone.js
+export function setupAudio() {
+  try {
+    if (typeof Tone === 'undefined') {
+      console.error("Tone.js not available. Check importmap in index.html");
+      setupFallbackAudio();
+      return;
+    }
+    initializeAudio();
+  } catch (e) {
+    console.error("Error setting up audio:", e);
+    setupFallbackAudio();
+  }
+}
+
 // Play the door sound
-function playDoorSound() {
+export function playDoorSound() {
   try {
     if (!audioInitialized) return;
     
@@ -240,7 +225,7 @@ function playDoorSound() {
 }
 
 // Enhanced Windows 95/98-style startup sound with glitch elements
-function playStartupSound() {
+export function playStartupSound() {
   try {
     if (!audioInitialized) {
       console.warn("Audio not initialized yet");
@@ -281,7 +266,7 @@ function playStartupSound() {
 }
 
 // Play dial-up sound
-function playDialUpSound() {
+export function playDialUpSound() {
   try {
     if (!audioInitialized) return;
     
@@ -313,7 +298,7 @@ function playDialUpSound() {
 }
 
 // Play ambient sound
-function playAmbientSound() {
+export function playAmbientSound() {
   try {
     if (!audioInitialized) return;
     
@@ -345,7 +330,7 @@ function playAmbientSound() {
 }
 
 // Create a glitch sound effect with more variation
-function createGlitchSound(intensity = 1) {
+export function createGlitchSound(intensity = 1) {
   try {
     if (!audioInitialized) return;
     
@@ -407,7 +392,7 @@ function createGlitchSound(intensity = 1) {
 }
 
 // Play a sound when an artifact/glitch is clicked
-function playGlitchSound(isArtifact = false) {
+export function playGlitchSound(isArtifact = false) {
   try {
     if (!audioInitialized) return;
     
@@ -433,7 +418,7 @@ function playGlitchSound(isArtifact = false) {
 }
 
 // Play a sound when secret is found
-function playSecretFoundSound() {
+export function playSecretFoundSound() {
   try {
     if (!audioInitialized) return;
     
@@ -447,7 +432,7 @@ function playSecretFoundSound() {
 }
 
 // Play the creepy sound for the completion message
-function playCreepySound() {
+export function playCreepySound() {
   try {
     if (!audioInitialized || !completionSound) return;
     
@@ -479,7 +464,7 @@ function playCreepySound() {
 }
 
 // BSOD Sound - Windows-style system crash sound
-function playBSODSound() {
+export function playBSODSound() {
   try {
     if (!audioInitialized) return;
     

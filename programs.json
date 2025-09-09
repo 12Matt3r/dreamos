@@ -1,0 +1,24 @@
+{
+  "wakeUpWebsims": [
+    { "name": "Wake Up", "url": "https://websim.ai/p/fznv3sgqfaprzkv0csx4" },
+    { "name": "please wake up", "url": "https://websim.ai/p/6qqd8xh9us27vtfl8x0x" }
+  ],
+  "showcaseItems": [
+    { "name": "$AUCELAB DJ BATTLE", "id": "vdfilk4u98acrqr9pq9f", "icon": "trophy" }
+  ],
+  "certificateItems": [
+    { "name": "WebSim $auce Certified Creator", "icon": "trophy" }
+  ],
+  "or9Items": [
+    { "name": "Roost (Goated)", "url": "https://roost.on.websim.ai/", "icon": "or9" }
+  ],
+  "desktopItems": [
+    { "name": "My Computer", "icon": "computer", "x": 20, "y": 20 },
+    { "name": "Recycle Bin", "icon": "recycle-bin", "x": 20, "y": 100 }
+  ],
+  "startMenuItems": [
+    { "name": "Programs", "icon": "folder" },
+    { "name": "Documents", "icon": "folder" },
+    { "name": "Link Inventory", "icon": "search" }
+  ]
+}
