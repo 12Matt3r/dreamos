@@ -1,7 +1,6 @@
 {
   "wakeUpWebsims": [
-    { "name": "Wake Up", "url": "https://websim.ai/p/fznv3sgqfaprzkv0csx4" },
-    { "name": "please wake up", "url": "https://websim.ai/p/6qqd8xh9us27vtfl8x0x" }
+    { "name": "Wake Up", "url": "https://websim.ai/p/fznv3sgqfaprzkv0csx4" }
   ],
   "showcaseItems": [
     { "name": "$AUCELAB DJ BATTLE", "id": "vdfilk4u98acrqr9pq9f", "icon": "trophy" }
@@ -14,20 +13,21 @@
   ],
   "shaderBangers": [
     { "name": "Electro-Shock", "url": "https://webglsamples.org/electroShock/application.html" },
-    { "name": "Video Texture", "url": "https://webglsamples.org/video/video.html" },
-    { "name": "Sprites", "url": "https://webglsamples.org/sprites/index.html" },
-    { "name": "GPU Grass", "url": "https://webglsamples.org/field/field.html" },
-    { "name": "Collectibles", "url": "https://webglsamples.org/collectibles/index.html" },
-    { "name": "Pixel City", "url": "https://webglsamples.org/city/city.html" },
-    { "name": "Color Adjust", "url": "https://webglsamples.org/color-adjust/color-adjust.html" },
-    { "name": "Caves", "url": "https://webglsamples.org/caves/caves.html" },
-    { "name": "Blob", "url": "https://webglsamples.org/blob/blob.html" },
-    { "name": "Aquarium", "url": "https://webglsamples.org/aquarium/aquarium.html" }
+    { "name": "WebGL Kaleidoscope", "url": "http://colordodge.com/Kaleidoscope/" },
+    { "name": "Cloth Simulation", "url": "http://kamibu.com/demos/cloth-simulation" }
+  ],
+  "googleExperiments": [
+    { "name": "HelloRacer™ WebGL", "url": "http://helloracer.com/webgl" },
+    { "name": "WebGL Cars", "url": "http://alteredqualia.com/three/examples/webgl_cars.html" },
+    { "name": "Pacmaze", "url": "http://pacmaze.com/" },
+    { "name": "Solar System Simulation", "url": "http://www.webdev20.pl/skins/default/js/demos/solar_system/index.html" },
+    { "name": "HexGL", "url": "http://hexgl.bkcore.com/" }
   ],
   "desktopItems": [
     { "name": "My Computer", "icon": "computer", "x": 20, "y": 20 },
     { "name": "Recycle Bin", "icon": "recycle-bin", "x": 20, "y": 100 },
-    { "name": "Shader Bangers", "icon": "folder", "x": 20, "y": 180 }
+    { "name": "Shader Bangers", "icon": "folder", "x": 20, "y": 180 },
+    { "name": "Google Experiments", "icon": "folder", "x": 20, "y": 260 }
   ],
   "startMenuItems": [
     { "name": "Programs", "icon": "folder" },
