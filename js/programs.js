@@ -4,7 +4,7 @@ import { playSecretFoundSound } from './audio.js';
 import { checkGameCompletion } from './game.js';
 import { toggleDiscordWindow } from './discord.js';
 import { createErrorMessage } from './ui_utils.js';
-import { openTerminal, showHiddenMessage, openOldDesktopFilesFolder, openShowcaseFolder, openCertifiedFolder, openOr9Folder, createBasicWindow, createInternetExplorer } from './ui.js';
+import { openTerminal, showHiddenMessage, openOldDesktopFilesFolder, openShowcaseFolder, openCertifiedFolder, openOr9Folder, createBasicWindow, createInternetExplorer, openShaderBangersFolder } from './ui.js';
 
 // Open program based on name
 export function openProgram(name, path) {
@@ -62,6 +62,9 @@ export function openProgram(name, path) {
         break;
       case 'TERMINAL.sys':
         openTerminal();
+        break;
+      case 'Shader Bangers':
+        openShaderBangersFolder();
         break;
       default:
         const wakeUpGame = wakeUpWebsims.find(game => game.name === name);

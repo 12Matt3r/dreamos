@@ -5,11 +5,35 @@ import { getIconSVG } from './icons.js';
 import { setupAudio, playStartupSound, createGlitchSound, playCreeepySound, playSecretFoundSound, playDoorSound } from './audio.js';
 import { initDesktop } from './desktop.js';
 import { loadGameState, checkGameCompletion, createHiddenArtifact, updateCorruptionEffects } from './game.js';
-import { gameState } from './state.js';
-import { wakeUpWebsims, showcaseItems, certificateItems, or9Items } from './program_data.js';
+import { gameState, shaderBangers } from './state.js';
 import * as Tone from 'tone';
 
 // ... (all other ui.js functions)
+
+export function openShaderBangersFolder() {
+    const folderContent = document.createElement('div');
+    folderContent.className = 'file-explorer-content';
+
+    shaderBangers.forEach(item => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'file-item';
+        itemEl.innerHTML = `
+            <div class="file-icon">${getIconSVG('3d')}</div>
+            <div class="file-name">${item.name}</div>
+        `;
+        itemEl.addEventListener('dblclick', () => {
+            createWebSimWindow(item.name, item.url, 800, 600);
+        });
+        folderContent.appendChild(itemEl);
+    });
+
+    createWindow({
+        title: 'Shader Bangers',
+        content: folderContent,
+        width: 600,
+        height: 400
+    });
+}
 
 export function showCompletionMessage() {
   try {

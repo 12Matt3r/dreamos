@@ -12,9 +12,22 @@
   "or9Items": [
     { "name": "Roost (Goated)", "url": "https://roost.on.websim.ai/", "icon": "or9" }
   ],
+  "shaderBangers": [
+    { "name": "Electro-Shock", "url": "https://webglsamples.org/electroShock/application.html" },
+    { "name": "Video Texture", "url": "https://webglsamples.org/video/video.html" },
+    { "name": "Sprites", "url": "https://webglsamples.org/sprites/index.html" },
+    { "name": "GPU Grass", "url": "https://webglsamples.org/field/field.html" },
+    { "name": "Collectibles", "url": "https://webglsamples.org/collectibles/index.html" },
+    { "name": "Pixel City", "url": "https://webglsamples.org/city/city.html" },
+    { "name": "Color Adjust", "url": "https://webglsamples.org/color-adjust/color-adjust.html" },
+    { "name": "Caves", "url": "https://webglsamples.org/caves/caves.html" },
+    { "name": "Blob", "url": "https://webglsamples.org/blob/blob.html" },
+    { "name": "Aquarium", "url": "https://webglsamples.org/aquarium/aquarium.html" }
+  ],
   "desktopItems": [
     { "name": "My Computer", "icon": "computer", "x": 20, "y": 20 },
-    { "name": "Recycle Bin", "icon": "recycle-bin", "x": 20, "y": 100 }
+    { "name": "Recycle Bin", "icon": "recycle-bin", "x": 20, "y": 100 },
+    { "name": "Shader Bangers", "icon": "folder", "x": 20, "y": 180 }
   ],
   "startMenuItems": [
     { "name": "Programs", "icon": "folder" },
